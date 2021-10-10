@@ -17,6 +17,7 @@ food = { x: 6, y: 7 };
 
 
 function main(ctime) {
+    musicSound.play();
     window.requestAnimationFrame(main);
     // console.log(ctime)
     if ((ctime - lastPaintTime) / 1000 < 1 / speed) {
@@ -46,10 +47,11 @@ function gameEngine() {
         gameOverSound.play();
         musicSound.pause();
         inputDir = { x: 0, y: 0 };
-        alert("Game Over. Press any key to play again!");
+        alert("Game Over. Press Enter key to play again!");
         snakeArr = [{ x: 13, y: 15 }];
         musicSound.play();
         score = 0;
+        scoreBox.innerHTML = "Score:" + score;
     }
 
     // If you have eaten the food, increment the score and regenerate the food
@@ -59,7 +61,7 @@ function gameEngine() {
         if (score > hiscoreval) {
             hiscoreval = score;
             localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
-            hiscoreBox.innerHTML = "HiScore: " + hiscoreval;
+            hiscoreBox.innerHTML = "High Score: " + hiscoreval;
         }
         scoreBox.innerHTML = "Score: " + score;
         snakeArr.unshift({ x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y });
@@ -103,14 +105,14 @@ function gameEngine() {
 
 
 // Main logic starts here
-musicSound.play();
+
 let hiscore = localStorage.getItem("hiscore");
 if (hiscore === null) {
     hiscoreval = 0;
     localStorage.setItem("hiscore", JSON.stringify(hiscoreval))
 } else {
     hiscoreval = JSON.parse(hiscore);
-    hiscoreBox.innerHTML = "HiScore: " + hiscore;
+    hiscoreBox.innerHTML = "High Score: " + hiscore;
 }
 
 window.requestAnimationFrame(main);

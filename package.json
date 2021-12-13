@@ -1,0 +1,23 @@
+{
+    "name": "snakegameproject",
+    "version": "1.0.0",
+    "description": "snake game",
+    "main": "app.js",
+    "scripts": {
+        "start": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/anadi45/SnakeGame.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/anadi45/SnakeGame/issues"
+    },
+    "homepage": "https://github.com/anadi45/SnakeGame#readme",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
